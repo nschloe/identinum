@@ -1,0 +1,5 @@
+*.pyc
+README.rst
+build/
+dist/
+decimal2rational.egg-info/
