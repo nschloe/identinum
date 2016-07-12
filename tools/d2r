@@ -35,6 +35,8 @@ if __name__ == '__main__':
             )
 
     if num is None:
-        print('fail')
+        print('No rational number found that approximates %r well enough.' %
+              args.decimal
+              )
     else:
         print('%r = %d / %d   %+0.4e' % (args.decimal, num, denom, diff))
