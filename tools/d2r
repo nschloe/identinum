@@ -25,18 +25,31 @@ if __name__ == '__main__':
             default=1000,
             help='maximum denominator to check'
             )
+    parser.add_argument(
+            '--max-root', '-r',
+            type=int,
+            default=5,
+            help='maximum denominator to check'
+            )
 
     args = parser.parse_args()
 
-    num, denom, diff = decimal2rational.decimal2rational(
+    num, denom, root, diff = decimal2rational.decimal2rational(
             args.decimal,
             tol=args.tolerance,
-            max_denominator=args.max_denominator
+            max_denominator=args.max_denominator,
+            max_root=args.max_root
             )
 
     if num is None:
         print('No rational number found that approximates %r well enough.' %
               args.decimal
               )
-    else:
+    elif root == 1:
         print('%r = %d / %d   %+0.4e' % (args.decimal, num, denom, diff))
+    elif root == 2:
+        print('%r = sqrt(%d / %d)   %+0.4e' % (args.decimal, num, denom, diff))
+    else:
+        print('%r = (%d / %d)^(1/%d)   %+0.4e' %
+              (args.decimal, num, denom, root, diff)
+              )
