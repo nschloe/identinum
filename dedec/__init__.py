@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 #
 __all__ = [
-    'decimal2rational'
+    'dedec'
     ]
 
 __version__ = '0.2.0'
 __author__ = 'Nico Schlömer'
 __author_email__ = 'nico.schloemer@gmail.com'
-__website__ = 'https://github.com/nschloe/decimal2rational'
+__website__ = 'https://github.com/nschloe/dedec'
 
 
-def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
+def dedec(a, max_denominator=1000, tol=1.0e-15):
     from math import pi, exp, log, asin, acos, atan
     from fractions import gcd
 

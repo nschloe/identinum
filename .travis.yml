@@ -12,7 +12,7 @@ install:
 
 script:
   - cd test
-  - nosetests --with-coverage --cover-package=decimal2rational
+  - nosetests --with-coverage --cover-package=dedec
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

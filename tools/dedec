@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 import argparse
-import decimal2rational
+import dedec
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -28,13 +28,13 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    sols = decimal2rational.decimal2rational(
+    sols = dedec.dedec(
             args.decimal,
             tol=args.tolerance,
             max_denominator=args.max_denominator
             )
 
-    # num, denom, mult_pi, fun_name, diff = decimal2rational.decimal2rational(
+    # num, denom, mult_pi, fun_name, diff = dedec.dedec(
 
     if len(sols) == 0:
         print('No expression found that approximates %r well enough.' %
@@ -46,6 +46,6 @@ if __name__ == '__main__':
             num, denom, mult_pi, fun_name, diff = sol
 
             print('%s   %+0.4e' % (
-                decimal2rational.repr(num, denom, mult_pi, fun_name),
+                dedec.repr(num, denom, mult_pi, fun_name),
                 diff
                 ))
