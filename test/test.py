@@ -15,6 +15,8 @@ def test_rational():
     assert mult_pi == 0
     assert fun is None
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == '3 / 7'
+
     return
 
 
@@ -28,6 +30,8 @@ def test_root2():
     assert den == 7
     assert mult_pi == 0
     assert fun == 'sqrt'
+
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'sqrt(3 / 7)'
 
     return
 
@@ -43,6 +47,8 @@ def test_root3():
     assert mult_pi == 0
     assert fun == 'root3'
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'root3(3 / 7)'
+
     return
 
 
@@ -56,6 +62,8 @@ def test_root34():
     assert den == 4
     assert mult_pi == 0
     assert fun == 'sqrt'
+
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'sqrt(3 / 4)'
 
     return
 
@@ -71,6 +79,8 @@ def test_pi():
     assert mult_pi == 1
     assert fun is None
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == '3 / 4 * pi'
+
     return
 
 
@@ -84,6 +94,8 @@ def test_sqrt_pi_2():
     assert den == 2
     assert mult_pi == 1
     assert fun == 'sqrt'
+
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'sqrt(1 / 2 * pi)'
 
     return
 
@@ -99,6 +111,8 @@ def test_exp_2_pi():
     assert mult_pi == 1
     assert fun == 'exp'
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'exp(2 * pi)'
+
     return
 
 
@@ -112,6 +126,8 @@ def test_logn_0_5():
     assert den == 2
     assert mult_pi == 0
     assert fun == 'logn'
+
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'logn(1 / 2)'
 
     return
 
@@ -127,6 +143,8 @@ def test_sin_1():
     assert mult_pi == 0
     assert fun == 'sin'
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'sin(1)'
+
     return
 
 
@@ -141,6 +159,8 @@ def test_cos_1():
     assert mult_pi == 0
     assert fun == 'cos'
 
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'cos(1)'
+
     return
 
 
@@ -154,6 +174,8 @@ def test_tan_1():
     assert den == 1
     assert mult_pi == 0
     assert fun == 'tan'
+
+    assert decimal2rational.repr(num, den, mult_pi, fun) == 'tan(1)'
 
     return
 
