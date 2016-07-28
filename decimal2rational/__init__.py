@@ -13,24 +13,26 @@ __website__ = 'https://github.com/nschloe/decimal2rational'
 def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
     from math import pi, exp, log, asin, acos, atan
 
+    # We need a list of tuples here since we rely on the ordering. A dict
+    # doesn't have that.
     funs = [
-        (lambda x: x, None),
-        (lambda x: x**2, 'sqrt'),
-        (lambda x: x**3, 'root3')
-        ]
+            (None, lambda x: x),
+            ('sqrt', lambda x: x**2),
+            ('root3', lambda x: x**3)
+            ]
 
     if a > 0:
-        funs.append((lambda x: log(x), 'exp'))
+        funs.append(('exp', lambda x: log(x)))
 
-    funs.append((lambda x: exp(x), 'logn'))
+    funs.append(('logn', lambda x: exp(x)))
 
     if a >= -1.0 and a <= 1.0:
-        funs.append((lambda x: asin(x), 'sin'))
-        funs.append((lambda x: acos(x), 'cos'))
+        funs.append(('sin', lambda x: asin(x)))
+        funs.append(('cos', lambda x: acos(x)))
 
-    funs.append((lambda x: atan(x), 'tan'))
+    funs.append(('tan', lambda x: atan(x)))
 
-    for fun, fun_name in funs:
+    for fun_name, fun in funs:
         a0 = a
         a0 = fun(a0)
         for mult_pi in range(2):

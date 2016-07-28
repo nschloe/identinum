@@ -25,31 +25,33 @@ if __name__ == '__main__':
             default=1000,
             help='maximum denominator to check'
             )
-    parser.add_argument(
-            '--max-root', '-r',
-            type=int,
-            default=5,
-            help='maximum denominator to check'
-            )
 
     args = parser.parse_args()
 
-    num, denom, root, diff = decimal2rational.decimal2rational(
+    num, denom, mult_pi, fun_name, diff = decimal2rational.decimal2rational(
             args.decimal,
             tol=args.tolerance,
-            max_denominator=args.max_denominator,
-            max_root=args.max_root
+            max_denominator=args.max_denominator
             )
 
     if num is None:
         print('No rational number found that approximates %r well enough.' %
               args.decimal
               )
-    elif root == 1:
-        print('%r = %d / %d   %+0.4e' % (args.decimal, num, denom, diff))
-    elif root == 2:
-        print('%r = sqrt(%d / %d)   %+0.4e' % (args.decimal, num, denom, diff))
     else:
-        print('%r = (%d / %d)^(1/%d)   %+0.4e' %
-              (args.decimal, num, denom, root, diff)
-              )
+        if denom == 1:
+            num_str = '%d' % num
+        else:
+            num_str = '%d / %d' % (num, denom)
+
+        if mult_pi == 1:
+            num_str += ' * pi'
+        elif mult_pi > 1:
+            num_str += ' * pi^%d' % mult_pi
+
+        if fun_name is None:
+            print('%r = %s   %+0.4e' % (args.decimal, num_str, diff))
+        else:
+            print('%r = %s(%s)   %+0.4e' %
+                  (args.decimal, fun_name, num_str, diff)
+                  )
