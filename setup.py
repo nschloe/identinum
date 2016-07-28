@@ -4,7 +4,7 @@ import os
 from setuptools import setup
 import codecs
 
-from decimal2rational import __name__, __version__, __author__, __author_email__
+from dedec import __name__, __version__, __author__, __author_email__
 
 
 def read(fname):
@@ -22,11 +22,11 @@ setup(
     version=__version__,
     author=__author__,
     author_email=__author_email__,
-    packages=['decimal2rational'],
-    description='Convert decimal to (approximate) rational number',
+    packages=['dedec'],
+    description='Convert decimals to approximate rational expressions',
     long_description=read('README.rst'),
-    url='https://github.com/nschloe/decimal2rational',
-    download_url='https://pypi.python.org/pypi/decimal2rational',
+    url='https://github.com/nschloe/dedec',
+    download_url='https://pypi.python.org/pypi/dedec',
     license='License :: OSI Approved :: MIT License',
     platforms='any',
     requires=[],
@@ -42,6 +42,6 @@ setup(
         'Topic :: Utilities'
         ],
     scripts=[
-        'tools/d2r'
+        'tools/dedec'
         ]
     )
