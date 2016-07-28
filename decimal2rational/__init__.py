@@ -11,17 +11,21 @@ __author_email__ = 'nico.schloemer@gmail.com'
 __website__ = 'https://github.com/nschloe/decimal2rational'
 
 
-def decimal2rational(a, max_denominator=1000, tol=1.0e-10):
+def decimal2rational(a, max_denominator=1000, max_root=5, tol=1.0e-10):
     num0 = None
-    d0 = None
+    den0 = None
+    root0 = None
     diff0 = None
-    for d in range(1, max_denominator+1):
-        rd = round(a*d)
-        diff = a*d - rd
-        if abs(diff) < tol * a*d:
-            num0 = int(rd)
-            d0 = d
-            diff0 = diff
-            break
+    for root in range(1, max_root+1):
+        a0 = a**root
+        for den in range(1, max_denominator+1):
+            rd = round(a0*den)
+            diff = a0*den - rd
+            if abs(diff) < tol * a0*den:
+                num0 = int(rd)
+                den0 = den
+                root0 = root
+                diff0 = diff
+                return int(rd), den, root, diff
 
-    return num0, d0, diff0
+    return None, None, None, None
