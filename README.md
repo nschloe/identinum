@@ -6,22 +6,28 @@
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?style=social&label=Star&maxAge=2592000)]()
 
 This is a small command-line utility that converts decimal numbers into
-(approximate) rational numbers (with roots).
+approximate rational expressions (with some basic functions).
 ```
-$ d2r 0.42857142857142
-0.42857142857142 = 3 / 7   -5.9952e-14
-$ d2r 0.8660254037844
-0.8660254037844 = sqrt(3 / 4)   -2.6823e-13
+$ dedec 0.42857142857142
+root3(27 / 343)   -4.7323e-15
+sqrt(9 / 49)   -7.3552e-15
+3 / 7   -8.5487e-15
+```
+```
+$ dedec 0.8660254037844
+sin(1 / 3 * pi)   -2.4591e-14
+cos(1 / 6 * pi)   +2.4619e-14
+sqrt(3 / 4)   -6.7057e-14
 ```
 It can also be used from Python
 ```python
 import dedec
 
 a = 3.0 / 7.0
-numerator, denominator, root, diff = dedec.dedec(a)
+sols = dedec.dedec(a)
+numerator, denominator, mult_pi, fun, diff = sols[0]
 assert numerator == 3
 assert denominator == 7
-assert root == 1
 ```
 
 ### Installation
