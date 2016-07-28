@@ -16,7 +16,7 @@ if __name__ == '__main__':
     parser.add_argument(
             '--tolerance', '-t',
             type=float,
-            default=1.0e-10,
+            default=1.0e-5,
             help='relative tolerance'
             )
     parser.add_argument(
@@ -28,30 +28,24 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    num, denom, mult_pi, fun_name, diff = decimal2rational.decimal2rational(
+    sols = decimal2rational.decimal2rational(
             args.decimal,
             tol=args.tolerance,
             max_denominator=args.max_denominator
             )
 
-    if num is None:
-        print('No rational number found that approximates %r well enough.' %
+    # num, denom, mult_pi, fun_name, diff = decimal2rational.decimal2rational(
+
+    if len(sols) == 0:
+        print('No expression found that approximates %r well enough.' %
               args.decimal
               )
     else:
-        if denom == 1:
-            num_str = '%d' % num
-        else:
-            num_str = '%d / %d' % (num, denom)
+        sols.sort(key=lambda x: abs(x[4]))
+        for sol in sols:
+            num, denom, mult_pi, fun_name, diff = sol
 
-        if mult_pi == 1:
-            num_str += ' * pi'
-        elif mult_pi > 1:
-            num_str += ' * pi^%d' % mult_pi
-
-        if fun_name is None:
-            print('%r = %s   %+0.4e' % (args.decimal, num_str, diff))
-        else:
-            print('%r = %s(%s)   %+0.4e' %
-                  (args.decimal, fun_name, num_str, diff)
-                  )
+            print('%s   %+0.4e' % (
+                decimal2rational.repr(num, denom, mult_pi, fun_name),
+                diff
+                ))

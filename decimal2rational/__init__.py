@@ -33,6 +33,7 @@ def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
 
     funs.append(('tan', lambda x: atan(x)))
 
+    sols = []
     for fun_name, fun in funs:
         a0 = a
         a0 = fun(a0)
@@ -44,9 +45,26 @@ def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
                 num = int(round(a0*den))
                 if gcd(num, den) > 1:
                     continue
-                diff = a0*den - num
-                if abs(diff) < tol * a0*den:
-                    return num, den, mult_pi, fun_name, diff / den
-                    # print(num, den, mult_pi, fun_name, diff/den)
+                diff = a0 - float(num) / den
+                if abs(diff) < tol * a0:
+                    sols.append((num, den, mult_pi, fun_name, diff))
 
-    return None, None, None, None, None
+    return sols
+
+
+def repr(num, denom, mult_pi, fun_name):
+
+    num_str = '%d' % num
+
+    if denom > 1:
+        num_str += ' / %d' % denom
+
+    if mult_pi == 1:
+        num_str += ' * pi'
+    elif mult_pi > 1:
+        num_str += ' * pi^%d' % mult_pi
+
+    if fun_name is None:
+        return '%s' % num_str
+
+    return '%s(%s)' % (fun_name, num_str)

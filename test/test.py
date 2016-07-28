@@ -6,8 +6,9 @@ from math import pi, exp, log, sin, cos, tan
 
 def test_rational():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(3.0 / 7.0)
+    sols = decimal2rational.decimal2rational(3.0 / 7.0)
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 3
     assert den == 7
@@ -19,8 +20,9 @@ def test_rational():
 
 def test_root2():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational((3.0 / 7.0)**0.5)
+    sols = decimal2rational.decimal2rational((3.0 / 7.0)**0.5)
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 3
     assert den == 7
@@ -32,8 +34,9 @@ def test_root2():
 
 def test_root3():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational((3.0 / 7.0)**(1.0/3.0))
+    sols = decimal2rational.decimal2rational((3.0 / 7.0)**(1.0/3.0))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 3
     assert den == 7
@@ -45,8 +48,9 @@ def test_root3():
 
 def test_root34():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(3.0**0.5 / 2.0)
+    sols = decimal2rational.decimal2rational(3.0**0.5 / 2.0)
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 3
     assert den == 4
@@ -58,8 +62,9 @@ def test_root34():
 
 def test_pi():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(3.0/4.0 * pi)
+    sols = decimal2rational.decimal2rational(3.0/4.0 * pi)
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 3
     assert den == 4
@@ -71,8 +76,9 @@ def test_pi():
 
 def test_sqrt_pi_2():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational((0.5*pi)**0.5)
+    sols = decimal2rational.decimal2rational((0.5*pi)**0.5)
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 1
     assert den == 2
@@ -84,8 +90,9 @@ def test_sqrt_pi_2():
 
 def test_exp_2_pi():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(exp(2*pi))
+    sols = decimal2rational.decimal2rational(exp(2*pi))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 2
     assert den == 1
@@ -97,8 +104,9 @@ def test_exp_2_pi():
 
 def test_logn_0_5():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(log(0.5))
+    sols = decimal2rational.decimal2rational(log(0.5))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 1
     assert den == 2
@@ -110,8 +118,9 @@ def test_logn_0_5():
 
 def test_sin_1():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(sin(1.0))
+    sols = decimal2rational.decimal2rational(sin(1.0))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 1
     assert den == 1
@@ -123,8 +132,9 @@ def test_sin_1():
 
 def test_cos_1():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(cos(1.0))
+    sols = decimal2rational.decimal2rational(cos(1.0))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 1
     assert den == 1
@@ -136,8 +146,9 @@ def test_cos_1():
 
 def test_tan_1():
 
-    num, den, mult_pi, fun, diff = \
-        decimal2rational.decimal2rational(tan(1.0))
+    sols = decimal2rational.decimal2rational(tan(1.0))
+
+    num, den, mult_pi, fun, diff = sols[0]
 
     assert num == 1
     assert den == 1
