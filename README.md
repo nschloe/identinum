@@ -5,19 +5,22 @@
 [![PyPi Version](https://img.shields.io/pypi/v/decimal2rational.svg)](https://pypi.python.org/pypi/decimal2rational)
 
 This is a small command-line utility that converts decimal numbers into
-(approximate) rational numbers.
+(approximate) rational numbers (with roots).
 ```
-$ ./d2r 0.42857142857142
+$ d2r 0.42857142857142
 0.42857142857142 = 3 / 7   -5.9952e-14
+$ d2r 0.8660254037844
+0.8660254037844 = sqrt(3 / 4)   -2.6823e-13
 ```
 It can also be used from Python
 ```python
 import decimal2rational
 
 a = 3.0 / 7.0
-numerator, denominator, diff = decimal2rational.decimal2rational(a)
+numerator, denominator, root, diff = decimal2rational.decimal2rational(a)
 assert numerator == 3
 assert denominator == 7
+assert root == 1
 ```
 
 ### Installation
