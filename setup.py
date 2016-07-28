@@ -23,7 +23,7 @@ setup(
     author=__author__,
     author_email=__author_email__,
     packages=['dedec'],
-    description='Convert decimal to (approximate) rational number',
+    description='Convert decimals to approximate rational expressions',
     long_description=read('README.rst'),
     url='https://github.com/nschloe/dedec',
     download_url='https://pypi.python.org/pypi/dedec',
@@ -42,6 +42,6 @@ setup(
         'Topic :: Utilities'
         ],
     scripts=[
-        'tools/d2r'
+        'tools/dedec'
         ]
     )
