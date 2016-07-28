@@ -5,19 +5,21 @@
 [![PyPi Version](https://img.shields.io/pypi/v/dedec.svg)](https://pypi.python.org/pypi/dedec)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?style=social&label=Star&maxAge=2592000)]()
 
-This is a small command-line utility that converts decimal numbers into
+You come across the number 0.866025. It looks vaguely familiar but you can't
+quite point your finger at it? Then dedec is for you.
+
+dedec is a small command-line utility that "de-decimalizes" decimal numbers into
 approximate rational expressions (with some basic functions).
 ```
-$ dedec 0.42857142857142
-root3(27 / 343)   -4.7323e-15
-sqrt(9 / 49)   -7.3552e-15
-3 / 7   -8.5487e-15
+$ dedec 0.4285714285
+sqrt(9 / 49)   -6.1224e-11
+3 / 7   -7.1429e-11
 ```
 ```
-$ dedec 0.8660254037844
-sin(1 / 3 * pi)   -2.4591e-14
-cos(1 / 6 * pi)   +2.4619e-14
-sqrt(3 / 4)   -6.7057e-14
+$ dedec 0.866025
+sin(1 / 3 * pi)   -2.5706e-07
+cos(1 / 6 * pi)   +2.5706e-07
+sqrt(3 / 4)   -6.9937e-07
 ```
 It can also be used from Python
 ```python

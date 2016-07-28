@@ -10,7 +10,7 @@ __author_email__ = 'nico.schloemer@gmail.com'
 __website__ = 'https://github.com/nschloe/dedec'
 
 
-def dedec(a, max_denominator=1000, tol=1.0e-15):
+def dedec(a, max_denominator=100, abs_tol=1.0e-15):
     from math import pi, exp, log, asin, acos, atan
     from fractions import gcd
 
@@ -46,7 +46,7 @@ def dedec(a, max_denominator=1000, tol=1.0e-15):
                 if gcd(num, den) > 1:
                     continue
                 diff = a0 - float(num) / den
-                if abs(diff) < tol * a0:
+                if abs(diff) < abs_tol:
                     sols.append((num, den, mult_pi, fun_name, diff))
 
     return sols

@@ -10,27 +10,30 @@ if __name__ == '__main__':
         )
     parser.add_argument(
             'decimal',
-            type=float,
+            type=str,
             help='input decimal number'
             )
     parser.add_argument(
             '--tolerance', '-t',
             type=float,
-            default=1.0e-10,
-            help='relative tolerance'
+            help='absolute tolerance (default: precision of the given decimal)'
             )
     parser.add_argument(
             '--max-denominator', '-m',
             type=int,
-            default=1000,
+            default=100,
             help='maximum denominator to check'
             )
 
     args = parser.parse_args()
 
+    if args.tolerance is None:
+        num_digits = len(args.decimal.rsplit('.', 1)[-1])
+        args.tolerance = 10**(-num_digits)
+
     sols = dedec.dedec(
-            args.decimal,
-            tol=args.tolerance,
+            float(args.decimal),
+            abs_tol=args.tolerance,
             max_denominator=args.max_denominator
             )
 
