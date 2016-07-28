@@ -16,7 +16,7 @@ if __name__ == '__main__':
     parser.add_argument(
             '--tolerance', '-t',
             type=float,
-            default=1.0e-5,
+            default=1.0e-10,
             help='relative tolerance'
             )
     parser.add_argument(

@@ -43,5 +43,17 @@ def test_root3():
     return
 
 
+def test_root34():
+
+    num, den, root, diff = \
+        decimal2rational.decimal2rational(3.0**0.5 / 2.0)
+
+    assert num == 3
+    assert den == 4
+    assert root == 2
+
+    return
+
+
 if __name__ == '__main__':
     test_d2r()
