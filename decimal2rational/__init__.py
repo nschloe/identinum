@@ -11,7 +11,7 @@ __website__ = 'https://github.com/nschloe/decimal2rational'
 
 
 def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
-    from math import pi, exp, log
+    from math import pi, exp, log, asin, acos, atan
 
     funs = [
         (lambda x: x, None),
@@ -23,6 +23,12 @@ def decimal2rational(a, max_denominator=1000, tol=1.0e-15):
         funs.append((lambda x: log(x), 'exp'))
 
     funs.append((lambda x: exp(x), 'logn'))
+
+    if a >= -1.0 and a <= 1.0:
+        funs.append((lambda x: asin(x), 'sin'))
+        funs.append((lambda x: acos(x), 'cos'))
+
+    funs.append((lambda x: atan(x), 'tan'))
 
     for fun, fun_name in funs:
         a0 = a

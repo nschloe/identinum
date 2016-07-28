@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 import decimal2rational
-from math import pi, exp, log
+from math import pi, exp, log, sin, cos, tan
 
 
 def test_rational():
@@ -104,6 +104,45 @@ def test_logn_0_5():
     assert den == 2
     assert mult_pi == 0
     assert fun == 'logn'
+
+    return
+
+
+def test_sin_1():
+
+    num, den, mult_pi, fun, diff = \
+        decimal2rational.decimal2rational(sin(1.0))
+
+    assert num == 1
+    assert den == 1
+    assert mult_pi == 0
+    assert fun == 'sin'
+
+    return
+
+
+def test_cos_1():
+
+    num, den, mult_pi, fun, diff = \
+        decimal2rational.decimal2rational(cos(1.0))
+
+    assert num == 1
+    assert den == 1
+    assert mult_pi == 0
+    assert fun == 'cos'
+
+    return
+
+
+def test_tan_1():
+
+    num, den, mult_pi, fun, diff = \
+        decimal2rational.decimal2rational(tan(1.0))
+
+    assert num == 1
+    assert den == 1
+    assert mult_pi == 0
+    assert fun == 'tan'
 
     return
 
