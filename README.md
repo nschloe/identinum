@@ -12,14 +12,14 @@ dedec is a small command-line utility that "de-decimalizes" decimal numbers into
 approximate rational expressions (with some basic functions).
 ```
 $ dedec 0.4285714285
-sqrt(9 / 49)   -6.1224e-11
 3 / 7   -7.1429e-11
+sqrt(9 / 49)   -7.1429e-11
 ```
 ```
 $ dedec 0.866025
-sin(1 / 3 * pi)   -2.5706e-07
-cos(1 / 6 * pi)   +2.5706e-07
-sqrt(3 / 4)   -6.9937e-07
+sqrt(3 / 4)   -4.0378e-07
+sin(1 / 3 * pi)   -4.0378e-07
+cos(1 / 6 * pi)   -4.0378e-07
 ```
 It can also be used from Python
 ```python
