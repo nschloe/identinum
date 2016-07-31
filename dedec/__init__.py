@@ -37,15 +37,14 @@ def dedec(a, max_denominator=100, abs_tol=1.0e-15):
     for fun_name, fun, inv in funs:
         a0 = a
         a0 = inv(a0)
-        for mult_pi in range(2):
-            if mult_pi > 0:
-                a0 /= pi**mult_pi
+        for mult_pi in range(3):
+            a1 = a0 / pi**mult_pi
 
             for den in range(1, max_denominator+1):
-                num = int(round(a0*den))
+                num = int(round(a1*den))
                 if gcd(num, den) > 1:
                     continue
-                diff = a0 - float(num) / den
+                diff = a1 - float(num) / den
                 if abs(diff) < abs_tol:
                     error = a - fun(float(num) / den * pi**mult_pi)
                     sols.append((num, den, mult_pi, fun_name, error))

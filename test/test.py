@@ -180,5 +180,21 @@ def test_tan_1():
     return
 
 
+def test_pi2():
+
+    sols = dedec.dedec((pi**2) / 4.0)
+
+    num, den, mult_pi, fun, diff = sols[0]
+
+    assert num == 1
+    assert den == 4
+    assert mult_pi == 2
+    assert fun is None
+
+    assert dedec.repr(num, den, mult_pi, fun) == '1 / 4 * pi^2'
+
+    return
+
+
 if __name__ == '__main__':
     test_d2r()
