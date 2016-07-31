@@ -11,32 +11,32 @@ __website__ = 'https://github.com/nschloe/dedec'
 
 
 def dedec(a, max_denominator=100, abs_tol=1.0e-15):
-    from math import pi, exp, log, asin, acos, atan
+    from math import pi, exp, log, sin, cos, tan, asin, acos, atan
     from fractions import gcd
 
     # We need a list of tuples here since we rely on the ordering. A dict
     # doesn't have that.
     funs = [
-            (None, lambda x: x),
-            ('sqrt', lambda x: x**2),
-            ('root3', lambda x: x**3)
+            (None, lambda x: x, lambda x: x),
+            ('sqrt', lambda x: x**0.5, lambda x: x**2),
+            ('root3', lambda x: x**(1.0/3.0), lambda x: x**3)
             ]
 
     if a > 0:
-        funs.append(('exp', lambda x: log(x)))
+        funs.append(('exp', exp, log))
 
-    funs.append(('logn', lambda x: exp(x)))
+    funs.append(('logn', log, exp))
 
     if a >= -1.0 and a <= 1.0:
-        funs.append(('sin', lambda x: asin(x)))
-        funs.append(('cos', lambda x: acos(x)))
+        funs.append(('sin', sin, asin))
+        funs.append(('cos', cos, acos))
 
-    funs.append(('tan', lambda x: atan(x)))
+    funs.append(('tan', tan, atan))
 
     sols = []
-    for fun_name, fun in funs:
+    for fun_name, fun, inv in funs:
         a0 = a
-        a0 = fun(a0)
+        a0 = inv(a0)
         for mult_pi in range(2):
             if mult_pi > 0:
                 a0 /= pi**mult_pi
@@ -47,7 +47,8 @@ def dedec(a, max_denominator=100, abs_tol=1.0e-15):
                     continue
                 diff = a0 - float(num) / den
                 if abs(diff) < abs_tol:
-                    sols.append((num, den, mult_pi, fun_name, diff))
+                    error = a - fun(float(num) / den * pi**mult_pi)
+                    sols.append((num, den, mult_pi, fun_name, error))
 
     return sols
 
