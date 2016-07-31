@@ -19,24 +19,21 @@ def dedec(a, max_denominator=100, abs_tol=1.0e-15):
     funs = [
             (None, lambda x: x, lambda x: x),
             ('sqrt', lambda x: x**0.5, lambda x: x**2),
-            ('root3', lambda x: x**(1.0/3.0), lambda x: x**3)
+            ('root3', lambda x: x**(1.0/3.0), lambda x: x**3),
+            ('exp', exp, log),
+            ('logn', log, exp),
+            ('sin', sin, asin),
+            ('cos', cos, acos),
+            ('tan', tan, atan)
             ]
-
-    if a > 0:
-        funs.append(('exp', exp, log))
-
-    funs.append(('logn', log, exp))
-
-    if a >= -1.0 and a <= 1.0:
-        funs.append(('sin', sin, asin))
-        funs.append(('cos', cos, acos))
-
-    funs.append(('tan', tan, atan))
 
     sols = []
     for fun_name, fun, inv in funs:
-        a0 = a
-        a0 = inv(a0)
+        try:
+            a0 = inv(a)
+        except ValueError:  # math domain error
+            continue
+
         for mult_pi in range(3):
             a1 = a0 / pi**mult_pi
 
@@ -44,9 +41,12 @@ def dedec(a, max_denominator=100, abs_tol=1.0e-15):
                 num = int(round(a1*den))
                 if gcd(num, den) > 1:
                     continue
-                diff = a1 - float(num) / den
-                if abs(diff) < abs_tol:
-                    error = a - fun(float(num) / den * pi**mult_pi)
+                x = float(num) / den * pi**mult_pi
+                try:
+                    error = a - fun(x)
+                except ValueError:  # math domain error
+                    continue
+                if abs(error) < abs_tol:
                     sols.append((num, den, mult_pi, fun_name, error))
 
     return sols
