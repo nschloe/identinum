@@ -11,7 +11,8 @@ __website__ = 'https://github.com/nschloe/dedec'
 
 
 def dedec(a, max_denominator=100, abs_tol=1.0e-15):
-    from math import pi, exp, log, sin, cos, tan, asin, acos, atan
+    from math import pi, exp, log, sin, cos, tan, asin, acos, atan, copysign, \
+                     pow
     from fractions import gcd
 
     # We need a list of tuples here since we rely on the ordering. A dict
@@ -19,7 +20,11 @@ def dedec(a, max_denominator=100, abs_tol=1.0e-15):
     funs = [
             (None, lambda x: x, lambda x: x),
             ('sqrt', lambda x: x**0.5, lambda x: x**2),
-            ('root3', lambda x: x**(1.0/3.0), lambda x: x**3),
+            ('root3',
+             # http://stackoverflow.com/a/1361789/353337
+             lambda x: copysign(pow(abs(x), 1.0/3.0), x),
+             lambda x: x**3
+             ),
             ('exp', exp, log),
             ('logn', log, exp),
             ('sin', sin, asin),
