@@ -7,7 +7,7 @@ python:
     - "3.4"
 
 install:
-  - pip install pytest pytest-cov
+  - sudo -H pip install pytest pytest-cov
   - pip install .
 
 script:
