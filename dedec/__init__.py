@@ -4,13 +4,13 @@ __all__ = [
     'dedec', 'repr'
     ]
 
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 __author__ = 'Nico Schlömer'
 __author_email__ = 'nico.schloemer@gmail.com'
 __website__ = 'https://github.com/nschloe/dedec'
 
 
-def dedec(a, max_denominator=100, abs_tol=1.0e-15):
+def dedec(a, max_denominator=10000, abs_tol=1.0e-15):
     from math import pi, exp, log, sin, cos, tan, asin, acos, atan, copysign, \
                      pow
     from fractions import gcd
