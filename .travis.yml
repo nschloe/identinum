@@ -6,6 +6,9 @@ python:
     - "2.7"
     - "3.4"
 
+virtualenv:
+  system_site_packages: true
+
 install:
   - sudo -H pip install pytest pytest-cov
   - pip install .
