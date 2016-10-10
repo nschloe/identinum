@@ -11,7 +11,7 @@ virtualenv:
   system_site_packages: true
 
 before_install:
-  - sudo apt install python-pytest python-pytest-cov python3-pytest python3-pytest-cov
+  - pip install pytest pytest-cov
 
 install:
   - pip install .
