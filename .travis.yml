@@ -6,13 +6,15 @@ python:
     - "2.7"
     - "3.4"
 
+before_install:
+  - pip install pytest pytest-cov
+
 install:
   - pip install .
-  - pip install coverage
 
 script:
   - cd test
-  - nosetests --with-coverage --cover-package=dedec
+  - pytest --cov dedec
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
