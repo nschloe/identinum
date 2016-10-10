@@ -55,7 +55,7 @@ python setup.py install
 
 To run the dedec unit tests, check out this repository and type
 ```
-nosetests
+pytest
 ```
 
 

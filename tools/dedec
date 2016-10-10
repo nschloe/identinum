@@ -21,7 +21,7 @@ if __name__ == '__main__':
     parser.add_argument(
             '--max-denominator', '-m',
             type=int,
-            default=100,
+            default=10000,
             help='maximum denominator to check'
             )
 

@@ -102,7 +102,7 @@ def test_sqrt_pi_2():
 
 def test_exp_2_pi():
 
-    sols = dedec.dedec(exp(2*pi))
+    sols = dedec.dedec(exp(2*pi), max_denominator=100)
 
     num, den, mult_pi, fun, diff = sols[0]
 
@@ -197,4 +197,4 @@ def test_pi2():
 
 
 if __name__ == '__main__':
-    test_d2r()
+    test_root3()

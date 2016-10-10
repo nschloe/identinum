@@ -3,3 +3,4 @@ README.rst
 build/
 dist/
 dedec.egg-info/
+.cache/
