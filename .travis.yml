@@ -9,8 +9,10 @@ python:
 virtualenv:
   system_site_packages: true
 
+before_install:
+  - sudo apt install python-pytest python-pytest-cov python3-pytest python3-pytest-cov
+
 install:
-  - sudo -H pip install pytest pytest-cov
   - pip install .
 
 script:
