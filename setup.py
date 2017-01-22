@@ -4,7 +4,11 @@ import os
 from setuptools import setup
 import codecs
 
-from dedec import __name__, __version__, __author__, __author_email__
+# https://packaging.python.org/single_source_version/
+base_dir = os.path.abspath(os.path.dirname(__file__))
+about = {}
+with open(os.path.join(base_dir, 'dedec', '__about__.py')) as f:
+    exec(f.read(), about)
 
 
 def read(fname):
@@ -17,11 +21,12 @@ def read(fname):
         content = ''
     return content
 
+
 setup(
     name=__name__,
-    version=__version__,
-    author=__author__,
-    author_email=__author_email__,
+    version=about['__version__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
     packages=['dedec'],
     description='Convert decimals to approximate rational expressions',
     long_description=read('README.rst'),
@@ -29,7 +34,7 @@ setup(
     download_url='https://pypi.python.org/pypi/dedec',
     license='License :: OSI Approved :: MIT License',
     platforms='any',
-    requires=[],
+    install_requires=[],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',

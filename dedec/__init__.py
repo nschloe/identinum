@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 #
+from .__about__ import (
+    __version__,
+    __author__,
+    __author_email__,
+    __website__
+    )
+
 __all__ = [
     'dedec', 'repr'
     ]
-
-__version__ = '0.2.3'
-__author__ = 'Nico Schlömer'
-__author_email__ = 'nico.schloemer@gmail.com'
-__website__ = 'https://github.com/nschloe/dedec'
 
 
 def dedec(a, max_denominator=10000, abs_tol=1.0e-15):
