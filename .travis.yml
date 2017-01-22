@@ -1,14 +1,10 @@
-sudo: true
 dist: trusty
 
 language: python
 
 python:
-    - "2.7"
-    - "3.4"
-
-virtualenv:
-  system_site_packages: true
+    - '2.7'
+    - '3.4'
 
 before_install:
   - pip install pytest pytest-cov
@@ -17,8 +13,7 @@ install:
   - pip install .
 
 script:
-  - cd test
-  - pytest --cov dedec
+  - cd test && pytest --cov dedec
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
