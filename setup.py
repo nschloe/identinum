@@ -23,7 +23,7 @@ def read(fname):
 
 
 setup(
-    name=__name__,
+    name='dedec',
     version=about['__version__'],
     author=about['__author__'],
     author_email=about['__author_email__'],
