@@ -34,7 +34,7 @@ setup(
     download_url='https://pypi.python.org/pypi/dedec',
     license='License :: OSI Approved :: MIT License',
     platforms='any',
-    install_requires=[],
+    install_requires=['pipdated'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
