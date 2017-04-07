@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 import codecs
 
 # https://packaging.python.org/single_source_version/
@@ -27,18 +27,18 @@ setup(
     version=about['__version__'],
     author=about['__author__'],
     author_email=about['__author_email__'],
-    packages=['dedec'],
+    packages=find_packages(),
     description='Convert decimals to approximate rational expressions',
     long_description=read('README.rst'),
     url='https://github.com/nschloe/dedec',
     download_url='https://pypi.python.org/pypi/dedec',
-    license='License :: OSI Approved :: MIT License',
+    license=about['__license__'],
     platforms='any',
     install_requires=['pipdated'],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        about['__status__'],
+        about['__license__'],
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
