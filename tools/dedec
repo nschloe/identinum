@@ -3,6 +3,8 @@
 #
 import argparse
 import dedec
+import sympy
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -35,7 +37,12 @@ if __name__ == '__main__':
               args.decimal
               )
     else:
-        diffs = [abs(float(args.decimal) - sol) for sol in sols]
-        order = [i[0] for i in sorted(enumerate(diffs), key=lambda x:x[1])]
+        diffs = [sympy.N(float(args.decimal) - sol) for sol in sols]
+        order = [
+            i[0] for i in sorted(
+                enumerate([abs(diff) for diff in diffs]),
+                key=lambda x:x[1]
+                )
+            ]
         for k in order:
             print('{}   {}'.format(sols[k], diffs[k]))
