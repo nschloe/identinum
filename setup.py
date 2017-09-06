@@ -36,6 +36,7 @@ setup(
     platforms='any',
     install_requires=[
         'mpmath',
+        'sympy',
         'pipdate',
         ],
     classifiers=[
