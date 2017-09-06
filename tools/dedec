@@ -18,12 +18,6 @@ if __name__ == '__main__':
             type=float,
             help='absolute tolerance (default: precision of the given decimal)'
             )
-    parser.add_argument(
-            '--max-denominator', '-m',
-            type=int,
-            default=10000,
-            help='maximum denominator to check'
-            )
 
     args = parser.parse_args()
 
@@ -34,21 +28,14 @@ if __name__ == '__main__':
     sols = dedec.dedec(
             float(args.decimal),
             abs_tol=args.tolerance,
-            max_denominator=args.max_denominator
             )
-
-    # num, denom, mult_pi, fun_name, diff = dedec.dedec(
 
     if len(sols) == 0:
         print('No expression found that approximates %r well enough.' %
               args.decimal
               )
     else:
-        sols.sort(key=lambda x: abs(x[4]))
-        for sol in sols:
-            num, denom, mult_pi, fun_name, diff = sol
-
-            print('%s   %+0.4e' % (
-                dedec.repr(num, denom, mult_pi, fun_name),
-                diff
-                ))
+        diffs = [abs(float(args.decimal) - sol) for sol in sols]
+        order = [i[0] for i in sorted(enumerate(diffs), key=lambda x:x[1])]
+        for k in order:
+            print('{}   {}'.format(sols[k], diffs[k]))
