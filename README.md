@@ -1,5 +1,7 @@
 # dedec
 
+A command-line wrapper around [mpmath's identify](http://docs.sympy.org/0.7.1/modules/mpmath/identification.html#identify).
+
 [![Build Status](https://travis-ci.org/nschloe/dedec.svg?branch=master)](https://travis-ci.org/nschloe/dedec)
 [![codecov](https://codecov.io/gh/nschloe/dedec/branch/master/graph/badge.svg)](https://codecov.io/gh/nschloe/dedec)
 [![PyPi Version](https://img.shields.io/pypi/v/dedec.svg)](https://pypi.python.org/pypi/dedec)
@@ -12,24 +14,11 @@ dedec is a small command-line utility that "de-decimalizes" decimal numbers into
 approximate rational expressions (with some basic functions).
 ```
 $ dedec 0.4285714285
-3 / 7   -7.1429e-11
-sqrt(9 / 49)   -7.1429e-11
+3/7   -7.14285297576112E-11
 ```
 ```
-$ dedec 0.866025
-sqrt(3 / 4)   -4.0378e-07
-sin(1 / 3 * pi)   -4.0378e-07
-cos(1 / 6 * pi)   -4.0378e-07
-```
-It can also be used from Python
-```python
-import dedec
-
-a = 3.0 / 7.0
-sols = dedec.dedec(a)
-numerator, denominator, mult_pi, fun, diff = sols[0]
-assert numerator == 3
-assert denominator == 7
+$ dedec 0.866025403
+sqrt(3)/2   -7.84438675343059E-10
 ```
 
 ### Installation
@@ -43,21 +32,12 @@ pip install -U dedec
 ```
 to install or upgrade.
 
-#### Manual installation
-
-Download dedec from [GitHub](https://github.com/nschloe/dedec) and
-install it with
-```
-python setup.py install
-```
-
 ### Testing
 
 To run the dedec unit tests, check out this repository and type
 ```
 pytest
 ```
-
 
 ### Distribution
 

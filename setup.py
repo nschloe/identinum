@@ -34,7 +34,11 @@ setup(
     download_url='https://pypi.python.org/pypi/dedec',
     license=about['__license__'],
     platforms='any',
-    install_requires=['pipdated'],
+    install_requires=[
+        'mpmath',
+        'sympy',
+        'pipdate',
+        ],
     classifiers=[
         about['__status__'],
         about['__license__'],
