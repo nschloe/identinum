@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-import dedec
 from math import pi, exp, log
+
+import dedec
 import sympy
 
 
