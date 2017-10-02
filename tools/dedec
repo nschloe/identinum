@@ -3,6 +3,7 @@
 #
 import argparse
 import dedec
+from mpmath import mp
 import sympy
 
 
@@ -27,16 +28,19 @@ if __name__ == '__main__':
         num_digits = len(args.decimal.rsplit('.', 1)[-1])
         args.tolerance = 10**(-num_digits)
 
-    sols = dedec.dedec(
-            float(args.decimal),
-            abs_tol=args.tolerance,
-            )
+    # def _granularity(x, max_digits=100):
+    #     '''Computes the "granularity" of a floating point number, i.e.,
+    #     1.0e-3 for 3.141.
+    #     '''
+    #     for k in range(max_digits):
+    #         if abs(x - int(x)) < 1.0e-15 * x:
+    #             break
+    #         x *= 10
+    #     return 10**(-k)
 
-    if len(sols) == 0:
-        print('No expression found that approximates %r well enough.' %
-              args.decimal
-              )
-    else:
+    x = float(args.decimal)
+    sols = dedec.identify(x, abs_tol=args.tolerance)
+    if sols:
         diffs = [sympy.N(float(args.decimal) - sol) for sol in sols]
         order = [
             i[0] for i in sorted(
@@ -46,3 +50,21 @@ if __name__ == '__main__':
             ]
         for k in order:
             print('{}   {}'.format(sols[k], diffs[k]))
+
+    poly_sol = dedec.findpoly(x, tol=args.tolerance*10)
+    if poly_sol is not None:
+        mp.dps = 20
+        residual = mp.polyval(poly_sol, x)
+        n = len(poly_sol)
+        print
+        print(
+            '{} = '.format(residual) +
+            ' + '.join(
+                ['{}*x^{}'.format(a, n-k-1) for k, a in enumerate(poly_sol)]
+                )
+            )
+
+    if not sols and poly_sol is None:
+        print('No expression found that approximates %r well enough.' %
+              args.decimal
+              )

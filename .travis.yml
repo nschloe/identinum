@@ -7,12 +7,14 @@ python:
     - '3.6'
 
 before_install:
-  - pip install pytest pytest-cov
+  - pip install pytest pytest-cov pylint
 
 install:
   - pip install .
 
 script:
+  - pylint dedec
+  - pylint test/*.py
   - cd test && pytest --cov dedec
 
 after_success:
