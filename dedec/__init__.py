@@ -7,7 +7,7 @@ from .__about__ import (
     __website__
     )
 
-from .main import dedec
+from .main import identify, findpoly
 
 import pipdate
 if pipdate.needs_checking(__name__):
