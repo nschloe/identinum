@@ -62,7 +62,7 @@ def test_pi2():
 
 def test_poly():
     sols = dedec.findpoly(0.17852201277, tol=1.0e-10)
-    assert sols == [105, -105, 21, -1]
+    assert sols == [-79852, -12268, 4735]
     return
 
 
