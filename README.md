@@ -5,7 +5,7 @@ A command-line wrapper around [mpmath's identify](http://docs.sympy.org/0.7.1/mo
 [![Build Status](https://travis-ci.org/nschloe/dedec.svg?branch=master)](https://travis-ci.org/nschloe/dedec)
 [![codecov](https://codecov.io/gh/nschloe/dedec/branch/master/graph/badge.svg)](https://codecov.io/gh/nschloe/dedec)
 [![PyPi Version](https://img.shields.io/pypi/v/dedec.svg)](https://pypi.python.org/pypi/dedec)
-[![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nschloe/dedec)
+[![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?logo=github&label=Star)](https://github.com/nschloe/dedec)
 
 You come across the number 0.866025. It looks vaguely familiar but you can't
 quite point your finger at it? Then dedec is for you.
