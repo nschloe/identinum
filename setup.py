@@ -39,5 +39,5 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Utilities",
     ],
-    scripts=["tools/dedec"],
+    entry_points={"console_scripts": ["dedec = dedec.cli:main"]},
 )
