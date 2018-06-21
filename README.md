@@ -2,10 +2,11 @@
 
 A command-line wrapper around [mpmath's identify](http://docs.sympy.org/0.7.1/modules/mpmath/identification.html#identify).
 
-[![Build Status](https://travis-ci.org/nschloe/dedec.svg?branch=master)](https://travis-ci.org/nschloe/dedec)
-[![codecov](https://codecov.io/gh/nschloe/dedec/branch/master/graph/badge.svg)](https://codecov.io/gh/nschloe/dedec)
-[![PyPi Version](https://img.shields.io/pypi/v/dedec.svg)](https://pypi.python.org/pypi/dedec)
-[![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nschloe/dedec)
+[![CircleCI](https://img.shields.io/circleci/project/github/nschloe/dedec/master.svg)](https://circleci.com/gh/nschloe/dedec/tree/master)
+[![codecov](https://img.shields.io/codecov/c/github/nschloe/dedec.svg)](https://codecov.io/gh/nschloe/dedec)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![PyPi Version](https://img.shields.io/pypi/v/dedec.svg)](https://pypi.org/project/dedec)
+[![GitHub stars](https://img.shields.io/github/stars/nschloe/dedec.svg?logo=github&label=Stars)](https://github.com/nschloe/dedec)
 
 You come across the number 0.866025. It looks vaguely familiar but you can't
 quite point your finger at it? Then dedec is for you.
@@ -26,7 +27,7 @@ sqrt(3)/2   -7.84438675343059E-10
 #### Python Package Index
 
 dedec is [available from the Python Package
-Index](https://pypi.python.org/pypi/dedec/), so simply type
+Index](https://pypi.org/project/dedec/), so simply type
 ```
 pip install -U dedec
 ```

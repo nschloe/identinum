@@ -1,6 +1,6 @@
 *.pyc
-README.rst
 build/
 dist/
 dedec.egg-info/
 .cache/
+.pytest_cache/
