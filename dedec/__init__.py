@@ -6,6 +6,15 @@ from .__about__ import __version__, __author__, __author_email__, __website__
 
 from .main import identify, findpoly
 
+__all__ = [
+    "__version__",
+    "__author__",
+    "__author_email__",
+    "__website__",
+    "identify",
+    "findpoly",
+]
+
 try:
     import pipdate
 except ImportError:
