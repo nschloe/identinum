@@ -24,8 +24,8 @@ sqrt(3)/2   -7.84438675343059E-10
 
 ### Installation
 
-dedec is [available from the Python Package
-Index](https://pypi.org/project/dedec/), so simply type
+dedec is [available from the Python Package Index](https://pypi.org/project/dedec/), so
+simply type
 ```
 pip install dedec --user
 ```
