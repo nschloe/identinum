@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-#
 import argparse
-from mpmath import mp
-import sympy
 
-from .main import identify, findpoly
+import sympy
+from mpmath import mp
+
+from .main import findpoly, identify
 
 
 def main(argv=None):
@@ -63,5 +62,3 @@ def main(argv=None):
 
     if not sols and poly_sol is None:
         print("No expression found that approximates %r well enough." % args.decimal)
-
-    return

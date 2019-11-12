@@ -8,7 +8,7 @@ upload: setup.py
 	@if [ "$(shell git rev-parse --abbrev-ref HEAD)" != "master" ]; then exit 1; fi
 	rm -f dist/*
 	python3 setup.py sdist
-	python3 setup.py bdist_wheel --universal
+	python3 setup.py bdist_wheel
 	twine upload dist/*
 
 tag:
@@ -23,6 +23,13 @@ clean:
 	@find . | grep -E "(__pycache__|\.pyc|\.pyo$\)" | xargs rm -rf
 	@rm -rf *.egg-info/ build/ dist/ MANIFEST
 
+format:
+	isort -rc .
+	black .
+
+black:
+	black .
+
 lint:
-	black --check setup.py dedec/ test/*.py
-	flake8 setup.py dedec/ test/*.py
+	black --check .
+	flake8 .
