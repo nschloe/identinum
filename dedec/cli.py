@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 import argparse
 
 import sympy
@@ -64,5 +62,3 @@ def main(argv=None):
 
     if not sols and poly_sol is None:
         print("No expression found that approximates %r well enough." % args.decimal)
-
-    return

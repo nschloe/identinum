@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 import mpmath
 from sympy import sympify
 
