@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 #
-from math import pi, exp, log
+from math import exp, log, pi
+
+import sympy
 
 import dedec
-import sympy
 
 
 def test_rational():

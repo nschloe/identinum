@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 #
 import argparse
-from mpmath import mp
-import sympy
 
-from .main import identify, findpoly
+import sympy
+from mpmath import mp
+
+from .main import findpoly, identify
 
 
 def main(argv=None):
