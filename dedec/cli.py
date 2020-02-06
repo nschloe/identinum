@@ -47,7 +47,7 @@ def main(argv=None):
         # for k in order:
         #     print("{}   {}".format(sols[k], diffs[k]))
         for sol, error in zip(sols, errors):
-            print("{}   {}".format(sol, error))
+            print(f"{sol}   {error}")
 
     poly_sol = findpoly(x, tol=args.tolerance * 10)
     if poly_sol is not None:
@@ -56,7 +56,7 @@ def main(argv=None):
         n = len(poly_sol)
         print()
         print(
-            "{} = ".format(residual)
+            f"{residual} = "
             + " + ".join(
                 ["{}*x^{}".format(a, n - k - 1) for k, a in enumerate(poly_sol)]
             )
