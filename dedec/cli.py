@@ -37,22 +37,24 @@ def main(argv=None):
     x = float(args.decimal)
     sols = identify(x, abs_tol=args.tolerance)
     if sols:
-        diffs = [sympy.N(float(args.decimal) - sol) for sol in sols]
-        order = [
-            i[0]
-            for i in sorted(
-                enumerate([abs(diff) for diff in diffs]), key=lambda x: x[1]
-            )
-        ]
-        for k in order:
-            print("{}   {}".format(sols[k], diffs[k]))
+        errors = [sympy.N(float(args.decimal) - sol) for sol in sols]
+        # order = [
+        #     i[0]
+        #     for i in sorted(
+        #         enumerate([abs(diff) for diff in diffs]), key=lambda x: x[1]
+        #     )
+        # ]
+        # for k in order:
+        #     print("{}   {}".format(sols[k], diffs[k]))
+        for sol, error in zip(sols, errors):
+            print("{}   {}".format(sol, error))
 
     poly_sol = findpoly(x, tol=args.tolerance * 10)
     if poly_sol is not None:
         mp.dps = 20
         residual = mp.polyval(poly_sol, x)
         n = len(poly_sol)
-        print
+        print()
         print(
             "{} = ".format(residual)
             + " + ".join(
