@@ -20,7 +20,7 @@ setup(
     url="https://github.com/nschloe/dedec",
     license=about["__license__"],
     platforms="any",
-    python_requires=">=3",
+    python_requires=">=3.6",
     install_requires=["mpmath", "sympy"],
     classifiers=[
         about["__status__"],

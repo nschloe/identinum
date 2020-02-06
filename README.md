@@ -27,7 +27,7 @@ sqrt(3)/2   -7.84438675343059E-10
 dedec is [available from the Python Package Index](https://pypi.org/project/dedec/), so
 simply type
 ```
-pip install dedec --user
+pip install dedec
 ```
 to install or upgrade.
 
