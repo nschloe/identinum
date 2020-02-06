@@ -45,7 +45,7 @@ def main(argv=None):
     sols = identify(x, abs_tol=args.tolerance)
     if sols:
         if len(sols) > args.num_results:
-            sols = sols[:args.num_results]
+            sols = sols[: args.num_results]
         errors = [sympy.N(float(args.decimal) - sol) for sol in sols]
         # order = [
         #     i[0]
