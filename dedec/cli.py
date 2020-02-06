@@ -17,6 +17,13 @@ def main(argv=None):
         type=float,
         help="absolute tolerance (default: precision of the given decimal)",
     )
+    parser.add_argument(
+        "--num-results",
+        "-n",
+        type=int,
+        default=10,
+        help="maximum number of results (default: 10)",
+    )
 
     args = parser.parse_args(argv)
 
@@ -37,6 +44,8 @@ def main(argv=None):
     x = float(args.decimal)
     sols = identify(x, abs_tol=args.tolerance)
     if sols:
+        if len(sols) > args.num_results:
+            sols = sols[:args.num_results]
         errors = [sympy.N(float(args.decimal) - sol) for sol in sols]
         # order = [
         #     i[0]
