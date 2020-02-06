@@ -5,11 +5,11 @@ from setuptools import find_packages, setup
 # https://packaging.python.org/single_source_version/
 base_dir = os.path.abspath(os.path.dirname(__file__))
 about = {}
-with open(os.path.join(base_dir, "dedec", "__about__.py"), "rb") as f:
+with open(os.path.join(base_dir, "identinum", "__about__.py"), "rb") as f:
     exec(f.read(), about)
 
 setup(
-    name="dedec",
+    name="identinum",
     version=about["__version__"],
     author=about["__author__"],
     author_email=about["__author_email__"],
@@ -17,7 +17,7 @@ setup(
     description="Convert decimals to approximate rational expressions",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/nschloe/dedec",
+    url="https://github.com/nschloe/identinum",
     license=about["__license__"],
     platforms="any",
     python_requires=">=3.6",
@@ -32,5 +32,5 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Utilities",
     ],
-    entry_points={"console_scripts": ["dedec = dedec.cli:main"]},
+    entry_points={"console_scripts": ["identinum = identinum.cli:main"]},
 )

@@ -1,4 +1,4 @@
-VERSION=$(shell python3 -c "import dedec; print(dedec.__version__)")
+VERSION=$(shell python3 -c "import identinum; print(identinum.__version__)")
 
 default:
 	@echo "\"make publish\"?"
@@ -21,7 +21,7 @@ publish: tag upload
 
 clean:
 	@find . | grep -E "(__pycache__|\.pyc|\.pyo$\)" | xargs rm -rf
-	@rm -rf *.egg-info/ build/ dist/ MANIFEST
+	@rm -rf *.egg-info/ build/ dist/ MANIFEST .pytest_cache/ .cache/
 
 format:
 	isort -rc .

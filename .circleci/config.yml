@@ -19,7 +19,7 @@ jobs:
       - run: pip3 install . --user
       # The tests
       - run:
-          command: pytest --cov dedec
+          command: pytest --cov identinum
           working_directory: test/
       # submit to codecov
       - run: bash <(curl -s https://codecov.io/bash)
