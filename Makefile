@@ -1,4 +1,4 @@
-VERSION=$(shell python3 -c "import dedec; print(dedec.__version__)")
+VERSION=$(shell python3 -c "import identinum; print(identinum.__version__)")
 
 default:
 	@echo "\"make publish\"?"

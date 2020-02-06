@@ -36,6 +36,6 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest pytest-cov
-        pytest --cov dedec
+        pytest --cov identinum
     # - name: Submit to codecov
     #   run: bash <(curl -s https://codecov.io/bash)
