@@ -1,18 +1,27 @@
 name: ci
 
-on: [pull_request]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v1
+    - uses: actions/setup-python@v2
       with:
         python-version: "3.x"
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    - name: Lint with isort
+      run: |
+        pip install isort
+        isort --check .
     - name: Lint with flake8
       run: |
-        pip install --upgrade pip
         pip install flake8
         flake8 .
     - name: Lint with black
@@ -22,20 +31,17 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
     steps:
-    - uses: actions/setup-python@v1
+    - uses: actions/setup-python@v2
       with:
-        python-version: "3.x"
-    - uses: actions/checkout@v1
-      with:
-        lfs: true
-    - name: Install package
+        python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@v2
+    - name: Test with tox
       run: |
-        pip install --upgrade pip
-        pip install .[all]
-    - name: Test with pytest
-      run: |
-        pip install pytest pytest-cov
-        pytest --cov identinum
-    # - name: Submit to codecov
-    #   run: bash <(curl -s https://codecov.io/bash)
+          pip install tox
+          tox
+    - uses: codecov/codecov-action@v1
+      if: ${{ matrix.python-version == '3.8' }}

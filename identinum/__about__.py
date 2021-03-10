@@ -1,6 +1,13 @@
-__version__ = "0.6.0"
-__author__ = "Nico Schlömer"
-__author_email__ = "nico.schloemer@gmail.com"
-__website__ = "https://github.com/nschloe/identinum"
-__license__ = "License :: OSI Approved :: MIT License"
-__status__ = "Development Status :: 4 - Beta"
+try:
+    # Python 3.8+
+    from importlib import metadata
+except ImportError:
+    try:
+        import importlib_metadata as metadata
+    except ImportError:
+        __version__ = "unknown"
+
+try:
+    __version__ = metadata.version("identinum")
+except Exception:
+    __version__ = "unknown"
