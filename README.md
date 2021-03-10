@@ -7,6 +7,7 @@ A command-line wrapper around [mpmath's identify](http://docs.sympy.org/0.7.1/mo
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 [![PyPi Version](https://img.shields.io/pypi/v/identinum.svg?style=flat-square)](https://pypi.org/project/identinum)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/identinum.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/identinum)
+[![Discord](https://img.shields.io/static/v1?logo=discord&label=chat&message=on%20discord&color=7289da&style=flat-square)](https://discord.gg/hnTJ5MRX2Y)
 
 You come across the number 0.866025. It looks vaguely familiar but you can't
 quite point your finger at it? Then identinum is for you.

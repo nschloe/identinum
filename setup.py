@@ -19,7 +19,6 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/nschloe/identinum",
     license=about["__license__"],
-    platforms="any",
     python_requires=">=3.6",
     install_requires=["mpmath", "sympy"],
     classifiers=[
