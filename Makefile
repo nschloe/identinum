@@ -3,7 +3,7 @@ VERSION=$(shell python3 -c "import identinum; print(identinum.__version__)")
 default:
 	@echo "\"make publish\"?"
 
-upload: setup.py
+upload: clean
 	# Make sure we're on the master branch
 	@if [ "$(shell git rev-parse --abbrev-ref HEAD)" != "master" ]; then exit 1; fi
 	rm -f dist/*
@@ -25,11 +25,9 @@ clean:
 	@rm -rf *.egg-info/ build/ dist/ MANIFEST .pytest_cache/ .cache/
 
 format:
-	isort -rc .
+	isort .
 	black .
-
-black:
-	black .
+	blacken-docs README.md
 
 lint:
 	black --check .
