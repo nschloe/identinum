@@ -1,7 +1,5 @@
 [build-system]
-requires = [
-  "setuptools>=61"
-]
+requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,6 +7,7 @@ name = "identinum"
 authors = [{name = "Nico Schlömer", email = "nico.schloemer@gmail.com"}]
 description = "Guess symbolic expressions from decimals"
 readme = "README.md"
+license = {file = "LICENSE.txt"}
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
