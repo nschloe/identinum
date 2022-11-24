@@ -39,7 +39,7 @@ Funding="https://github.com/sponsors/nschloe"
 version = {attr = "identinum.__about__.__version__"}
 
 [project.scripts]
-identinum = "identinum._cli:main"
+identinum = "identinum.cli:main"
 
 [tool.isort]
 profile = "black"
