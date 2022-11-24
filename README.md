@@ -42,7 +42,3 @@ To run the identinum unit tests, check out this repository and type
 ```
 pytest
 ```
-
-### License
-identinum is published under the [MIT
-license](https://en.wikipedia.org/wiki/MIT_License).
