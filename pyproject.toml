@@ -1,3 +1,45 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "identinum"
+authors = [{name = "Nico Schlömer", email = "nico.schloemer@gmail.com"}]
+description = "Guess symbolic expressions from decimals"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Utilities",
+]
+dynamic = ["version"]
+requires-python = ">= 3.7"
+dependencies = [
+  "mpmath",
+  "sympy",
+]
+
+[project.urls]
+Homepage = "https://github.com/nschloe/identinum"
+Issues = "https://github.com/nschloe/identinum/issues"
+Funding="https://github.com/sponsors/nschloe"
+
+[tool.setuptools.dynamic]
+version = {attr = "identinum.__about__.__version__"}
+
+[project.scripts]
+identinum = "identinum._cli:main"
+
+[tool.isort]
+profile = "black"

@@ -21,7 +21,7 @@ def test_root3():
 
 
 def test_root34():
-    sols = identinum.identify(3.0 ** 0.5 / 2.0)
+    sols = identinum.identify(3.0**0.5 / 2.0)
     assert sols[0] == sympy.sqrt(sympy.Rational(3, 4))
 
 
@@ -46,8 +46,8 @@ def test_logn_0_5():
 
 
 def test_pi2():
-    sols = identinum.identify(pi ** 2 / 4.0)
-    assert sols[0] == sympy.pi ** 2 * sympy.Rational(1, 4)
+    sols = identinum.identify(pi**2 / 4.0)
+    assert sols[0] == sympy.pi**2 * sympy.Rational(1, 4)
 
 
 def test_poly():
